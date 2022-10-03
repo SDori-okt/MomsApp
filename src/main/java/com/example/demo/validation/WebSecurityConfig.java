@@ -21,6 +21,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("home");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/admin").setViewName("admin");
@@ -32,6 +33,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         http.authorizeHttpRequests()
                 .antMatchers("/admin").hasRole(ADMIN_ROLE)
                 .antMatchers("/registration").permitAll()
+                .antMatchers("/index").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/images/**").permitAll()
                 .anyRequest().authenticated();
