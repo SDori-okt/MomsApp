@@ -22,13 +22,13 @@ CREATE TABLE IF NOT EXISTS `userlogin2`.`childdata` (
   `childName` VARCHAR(45) NOT NULL,
   `childAge` TINYINT NOT NULL,
   `childSex` VARCHAR(10) NOT NULL,
-  `typeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen programot szeretne a szülõ',
-  `timeOfHappening` VARCHAR(45) NOT NULL COMMENT 'A nap melyik részében szeretne programot a szülõ',
-  `placeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen helyet részesít elõnyben a szülõ',
+  `typeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen programot szeretne a szï¿½lï¿½',
+  `timeOfHappening` VARCHAR(45) NOT NULL COMMENT 'A nap melyik rï¿½szï¿½ben szeretne programot a szï¿½lï¿½',
+  `placeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen helyet rï¿½szesï¿½t elï¿½nyben a szï¿½lï¿½',
   `ID` INT NOT NULL,
   PRIMARY KEY (`childID`),
-  UNIQUE INDEX `childID_UNIQUE` (`childID` ASC) VISIBLE,
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE,
+  UNIQUE INDEX `childID_UNIQUE` (`childID` ASC),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
   CONSTRAINT `ID`
     FOREIGN KEY (`ID`)
     REFERENCES `userlogin2`.`userlogin` (`ID`)
@@ -42,22 +42,22 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `userlogin2`.`userlogin` (
   `ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Index, autoincrement',
-  `lastName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Vezetéknév',
-  `firstName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Keresztnév',
-  `loginName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Bejelentkezési név',
-  `zipCode` SMALLINT NOT NULL COMMENT 'Irányítószám',
-  `location` VARCHAR(85) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Város',
-  `streetName` VARCHAR(100) CHARACTER SET 'utf8mb3' NULL DEFAULT NULL COMMENT 'Utcanév',
-  `streetNumber` SMALLINT NULL DEFAULT NULL COMMENT 'Házszám',
+  `lastName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Vezetï¿½knï¿½v',
+  `firstName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Keresztnï¿½v',
+  `loginName` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Bejelentkezï¿½si nï¿½v',
+  `zipCode` SMALLINT NOT NULL COMMENT 'Irï¿½nyï¿½tï¿½szï¿½m',
+  `location` VARCHAR(85) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'Vï¿½ros',
+  `streetName` VARCHAR(100) CHARACTER SET 'utf8mb3' NULL DEFAULT NULL COMMENT 'Utcanï¿½v',
+  `streetNumber` SMALLINT NULL DEFAULT NULL COMMENT 'Hï¿½zszï¿½m',
   `e-mail` VARCHAR(100) CHARACTER SET 'utf8mb3' NOT NULL COMMENT 'E-mail',
-  `isAdmin` BINARY(1) NULL DEFAULT '0' COMMENT 'Jogosultság - 1 = admin, 0 = felhasználó',
+  `isAdmin` BINARY(1) NULL DEFAULT '0' COMMENT 'Jogosultsï¿½g - 1 = admin, 0 = felhasznï¿½lï¿½',
   `password` VARCHAR(20) CHARACTER SET 'utf8mb3' NOT NULL,
-  `isStreetPublic` BINARY(1) NULL DEFAULT '0' COMMENT 'Alapértelmezetten nem publikus!!!! Értéke alapértelmezetten 0',
-  `isStreetNumberPublic` BINARY(1) NULL DEFAULT '0' COMMENT 'Alapértelmezetten nem publikus!!!! Értéke alapértelmezetten 0',
+  `isStreetPublic` BINARY(1) NULL DEFAULT '0' COMMENT 'Alapï¿½rtelmezetten nem publikus!!!! ï¿½rtï¿½ke alapï¿½rtelmezetten 0',
+  `isStreetNumberPublic` BINARY(1) NULL DEFAULT '0' COMMENT 'Alapï¿½rtelmezetten nem publikus!!!! ï¿½rtï¿½ke alapï¿½rtelmezetten 0',
   `dateOfBirth` DATE NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `loginName` (`loginName` ASC) VISIBLE,
-  UNIQUE INDEX `e-mail_UNIQUE` (`e-mail` ASC) VISIBLE,
-  INDEX `ID` (`ID` ASC) VISIBLE)
+  UNIQUE INDEX `loginName` (`loginName` ASC),
+  UNIQUE INDEX `e-mail_UNIQUE` (`e-mail` ASC),
+  INDEX `ID` (`ID` ASC))
 ENGINE = InnoDB;
 SET FOREIGN_KEY_CHECKS = 1;

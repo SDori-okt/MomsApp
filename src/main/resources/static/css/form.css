@@ -21,7 +21,7 @@ body, input{
 }
 input{
     border-radius: 5px;
-    color: #CCCCCC;
+    color: black;
 }
 label{
     width: 120px;
