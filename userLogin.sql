@@ -2,7 +2,7 @@
 -- MySQL Workbench Migration
 -- Migrated Schemata: userlogin2
 -- Source Schemata: userlogin
--- Created: Tue Sep 27 22:51:59 2022
+-- Created: Wed Sep 28 23:17:28 2022
 -- Workbench Version: 8.0.30
 -- ----------------------------------------------------------------------------
 
@@ -13,6 +13,29 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------------------------------------------------------
 DROP SCHEMA IF EXISTS `userlogin2` ;
 CREATE SCHEMA IF NOT EXISTS `userlogin2` ;
+
+-- ----------------------------------------------------------------------------
+-- Table userlogin2.childdata
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `userlogin2`.`childdata` (
+  `childID` INT NOT NULL AUTO_INCREMENT,
+  `childName` VARCHAR(45) NOT NULL,
+  `childAge` TINYINT NOT NULL,
+  `childSex` VARCHAR(10) NOT NULL,
+  `typeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen programot szeretne a szülõ',
+  `timeOfHappening` VARCHAR(45) NOT NULL COMMENT 'A nap melyik részében szeretne programot a szülõ',
+  `placeOfHappening` VARCHAR(45) NOT NULL COMMENT 'Milyen helyet részesít elõnyben a szülõ',
+  `ID` INT NOT NULL,
+  PRIMARY KEY (`childID`),
+  UNIQUE INDEX `childID_UNIQUE` (`childID` ASC) VISIBLE,
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE,
+  CONSTRAINT `ID`
+    FOREIGN KEY (`ID`)
+    REFERENCES `userlogin2`.`userlogin` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- ----------------------------------------------------------------------------
 -- Table userlogin2.userlogin
