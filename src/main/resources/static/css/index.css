@@ -6,7 +6,9 @@
     padding: 0;
 }
 body{
-    background: url("../images/bg.jpg");
+    background-image: url("/images/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
     font-family: "Roboto Condensed", cursive;
 }
 span.logo a{
@@ -76,10 +78,12 @@ button:hover{
 }
 .event_container{
     margin-top: 10px;
-    background-color: rgba(255,255,255,0.4);
-    border-radius: 10px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px 0px 5px 5px;
+    max-height: 30%;
+    margin-left: 5px;
 }
-.event_container img{
+.event_container img.profilepic{
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -92,4 +96,17 @@ button:hover{
     font-weight: normal;
     padding-top: 10px;
     padding-right: 10px;
+}
+.event_container p{
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 40px;
+}
+.event_img img{
+    display: block;
+    margin: auto;
+    width: 95%;
+    height: 300px;
+    padding-left: 2px;
+    padding-bottom: 4px;
 }
